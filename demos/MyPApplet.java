@@ -12,30 +12,23 @@ import processing.core.PImage;
  *
  */
 public class MyPApplet extends PApplet{
-//	PImage img;
-        private String URL = "palmTrees.jpg";
-        private PImage backgroundImg;
+	PImage img;
 	
 	public void setup() {
 		//Add setup code for MyPApplet
-		size(200,200);				//set canvas size
-		backgroundImg = loadImage(URL,"jpg");
-//		background(255);			//set canvas color
-//		stroke(0);				//set pen color
-//		img = loadImage("palmTrees.jpg", "jpg");
+		size(400,400);				//set canvas size
+		background(255);			//set canvas color
+		stroke(0);				//set pen color
+		img = loadImage("palmTrees.jpg", "jpg");
 	}
 	
 	public void draw() {
 		//Add drawing code for MyPApplet
-	        backgroundImg.resize(0, height);
-	        image(backgroundImg,0,0);
-	        fill(255,209,0);
-	        ellipse(width/4, height/5, width/5, height/5);
-//		img.resize(0, height);			//resize loaded image to full height of canvas
-//		image(img, 0, 0);			//display image 
-//		int[] color = sunColorSec(second());		//calculate color code for sun
-//		fill(color[0],color[1],color[2]);	//set sun color
-//		ellipse(width/4,height/5,width/4,height/5);	//draw sun
+		img.resize(0, height);			//resize loaded image to full height of canvas
+		image(img, 0, 0);			//display image 
+		int[] color = sunColorSec(second());		//calculate color code for sun
+		fill(color[0],color[1],color[2]);	//set sun color
+		ellipse(width/4,height/5,width/4,height/5);	//draw sun
 		
 	}
 	
