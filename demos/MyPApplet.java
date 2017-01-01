@@ -29,6 +29,8 @@ public class MyPApplet extends PApplet{
 		//Add drawing code for MyPApplet
 	        backgroundImg.resize(0, height);
 	        image(backgroundImg,0,0);
+	        fill(255,209,0);
+	        ellipse(width/4, height/5, width/5, height/5);
 //		img.resize(0, height);			//resize loaded image to full height of canvas
 //		image(img, 0, 0);			//display image 
 //		int[] color = sunColorSec(second());		//calculate color code for sun
