@@ -27,6 +27,7 @@ public class MyPApplet extends PApplet{
 	
 	public void draw() {
 		//Add drawing code for MyPApplet
+	        backgroundImg.resize(0, height);
 	        image(backgroundImg,0,0);
 //		img.resize(0, height);			//resize loaded image to full height of canvas
 //		image(img, 0, 0);			//display image 
