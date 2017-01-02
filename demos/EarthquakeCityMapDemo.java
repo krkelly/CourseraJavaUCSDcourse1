@@ -56,8 +56,8 @@ public class EarthquakeCityMapDemo extends PApplet {
 		size(950, 600, OPENGL);
 
 		// Assume online
-		map = new UnfoldingMap(this, 200, 50, 700, 500, new Google.GoogleMapProvider());
-//		map = new UnfoldingMap(this, 200, 50, 700, 500, new OpenStreetMap.OpenStreetMapProvider() );
+//		map = new UnfoldingMap(this, 200, 50, 700, 500, new Google.GoogleMapProvider());
+		map = new UnfoldingMap(this, 200, 50, 700, 500, new OpenStreetMap.OpenStreetMapProvider() );
 //	    map = new UnfoldingMap(this, 200, 50, 650, 600, new MBTilesMapProvider(mbTilesString));
 
 	    map.zoomToLevel(1);
@@ -71,9 +71,9 @@ public class EarthquakeCityMapDemo extends PApplet {
 	    //STAGE 1: Markers (not associated with Features)
 	    
 	    // Create a marker at a specific location in the world, and format it
-//	    Location valLoc = new Location(-38.14f,-73.03f);
-//	    Marker val = new SimplePointMarker(valLoc);
-//	    map.addMarker(val);
+	    Location valLoc = new Location(-38.14f,-73.03f);
+	    Marker val = new SimplePointMarker(valLoc);
+	    map.addMarker(val);
 	    
 	    //STAGE 2: Features with rich data, then Marker
 	    
@@ -152,7 +152,7 @@ public class EarthquakeCityMapDemo extends PApplet {
 	    		mk.setColor(gray);
 	    	}
 	    }
-//	    
+	    
 	    
 	    //List<Marker> markers = new ArrayList<Marker>();
 	    

@@ -7,11 +7,13 @@ import de.fhpotsdam.unfolding.providers.*;
 import de.fhpotsdam.unfolding.providers.Google.*;
 
 import java.util.List;
+
 import de.fhpotsdam.unfolding.data.Feature;
 import de.fhpotsdam.unfolding.data.GeoJSONReader;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 
 import de.fhpotsdam.unfolding.marker.Marker;
@@ -32,21 +34,22 @@ public class LifeExpectancy extends PApplet {
 
 	public void setup() {
 		size(800, 600, OPENGL);
-		map = new UnfoldingMap(this, 50, 50, 700, 500, new Google.GoogleMapProvider());
+//		map = new UnfoldingMap(this, 50, 50, 700, 500, new Google.GoogleMapProvider());
+		map = new UnfoldingMap(this, 50, 50, 700, 500, new OpenStreetMap.OpenStreetMapProvider() );
 		MapUtils.createDefaultEventDispatcher(this, map);
 
 		// Load lifeExpectancy data
-		lifeExpByCountry = loadLifeExpectancyFromCSV("LifeExpectancyWorldBankModule3.csv");
-		println("Loaded " + lifeExpByCountry.size() + " data entries");
-		
-
-		// Load country polygons and adds them as markers
-		countries = GeoJSONReader.loadData(this, "countries.geo.json");
-		countryMarkers = MapUtils.createSimpleMarkers(countries);
-		map.addMarkers(countryMarkers);
-		
-		// Country markers are shaded according to life expectancy (only once)
-		shadeCountries();
+//		lifeExpByCountry = loadLifeExpectancyFromCSV("LifeExpectancyWorldBankModule3.csv");
+//		println("Loaded " + lifeExpByCountry.size() + " data entries");
+//		
+//
+//		// Load country polygons and adds them as markers
+//		countries = GeoJSONReader.loadData(this, "countries.geo.json");
+//		countryMarkers = MapUtils.createSimpleMarkers(countries);
+//		map.addMarkers(countryMarkers);
+//		
+//		// Country markers are shaded according to life expectancy (only once)
+//		shadeCountries();
 	}
 
 	public void draw() {
