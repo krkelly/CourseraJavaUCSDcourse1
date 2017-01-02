@@ -39,10 +39,10 @@ public class LifeExpectancy extends PApplet {
 		MapUtils.createDefaultEventDispatcher(this, map);
 
 		// Load lifeExpectancy data
-//		lifeExpByCountry = loadLifeExpectancyFromCSV("LifeExpectancyWorldBankModule3.csv");
-//		println("Loaded " + lifeExpByCountry.size() + " data entries");
-//		
-//
+		lifeExpByCountry = loadLifeExpectancyFromCSV("LifeExpectancyWorldBankModule3.csv");
+		println("Loaded " + lifeExpByCountry.size() + " data entries");
+		
+
 //		// Load country polygons and adds them as markers
 //		countries = GeoJSONReader.loadData(this, "countries.geo.json");
 //		countryMarkers = MapUtils.createSimpleMarkers(countries);
@@ -89,7 +89,8 @@ public class LifeExpectancy extends PApplet {
 			// we just use a comma here, and ignore the fact that the first field is split.
 			String[] columns = row.split(",");
 			if (columns.length == 6 && !columns[5].equals("..")) {
-				lifeExpMap.put(columns[4], Float.parseFloat(columns[5]));
+			        float value = Float.parseFloat(columns[5]);
+				lifeExpMap.put(columns[4], value);
 			}
 		}
 
