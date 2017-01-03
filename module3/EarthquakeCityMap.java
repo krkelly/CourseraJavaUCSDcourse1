@@ -41,6 +41,12 @@ public class EarthquakeCityMap extends PApplet {
         public static final float THRESHOLD_MODERATE = 5;
         // Less than this threshold is a minor earthquake
         public static final float THRESHOLD_LIGHT = 4;
+        
+        // Here is an example of how to use Processing's color method to generate 
+        // an int that represents the color yellow.  
+        private final int yellow = color(255, 255, 0);
+        private final int blue = color(0, 0, 255);
+        private final int red = color(255, 0, 0);
 
         /** This is where to find the local tiles, for working without an Internet connection */
         public static String mbTilesString = "blankLight-1-3.mbtiles";
@@ -85,12 +91,6 @@ public class EarthquakeCityMap extends PApplet {
                 float mag = Float.parseFloat(magObj.toString());
                 // PointFeatures also have a getLocation method
             }
-            
-            // Here is an example of how to use Processing's color method to generate 
-            // an int that represents the color yellow.  
-            int yellow = color(255, 255, 0);
-            int blue = color(0, 0, 255);
-            int red = color(255, 0, 0);
             
             //TODO: Add code here as appropriate
             for (int i = 0; i < earthquakes.size(); i++)
@@ -148,14 +148,29 @@ public class EarthquakeCityMap extends PApplet {
             // Remember you can use Processing's graphics methods here
             fill(255);
             rect(15, 50, 170, 200);
+            
             fill(0);
             textSize(16);
             text("Earthquake Key", 30, 80);
-            fill(100);
+            
+            fill(red);
             ellipse(35, 110, 18, 18);
-            fill(100);
+            fill(yellow);
             ellipse(35, 150, 12, 12);
-            fill(100);
+            fill(blue);
             ellipse(35, 190, 6, 6);
+            
+            fill(0);
+            textSize(16);
+            text("5.0+ Magnitude", 50, 115);
+            fill(0);
+            textSize(16);
+            text("4.0+ Magnitude", 50, 155);
+            fill(0);
+            textSize(16);
+            text("5.0+ Magnitude", 50, 115);
+            fill(0);
+            textSize(16);
+            text("Below 4.0", 50, 195);
         }
 }
