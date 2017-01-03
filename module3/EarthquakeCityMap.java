@@ -6,6 +6,7 @@ import java.util.ArrayList;
 //import java.util.Comparator;
 import java.util.List;
 
+
 //Processing library
 import processing.core.PApplet;
 
@@ -16,6 +17,7 @@ import de.fhpotsdam.unfolding.data.PointFeature;
 import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
+import de.fhpotsdam.unfolding.providers.OpenStreetMap;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 
 //Parsing library
@@ -58,7 +60,8 @@ public class EarthquakeCityMap extends PApplet {
                     earthquakesURL = "2.5_week.atom";   // Same feed, saved Aug 7, 2015, for working offline
                 }
                 else {
-                        map = new UnfoldingMap(this, 200, 50, 700, 500, new Google.GoogleMapProvider());
+//                        map = new UnfoldingMap(this, 200, 50, 700, 500, new Google.GoogleMapProvider());
+                        map = new UnfoldingMap(this, 200, 50, 700, 500, new OpenStreetMap.OpenStreetMapProvider());
                         // IF YOU WANT TO TEST WITH A LOCAL FILE, uncomment the next line
                         //earthquakesURL = "2.5_week.atom";
                 }
@@ -86,8 +89,40 @@ public class EarthquakeCityMap extends PApplet {
             // Here is an example of how to use Processing's color method to generate 
             // an int that represents the color yellow.  
             int yellow = color(255, 255, 0);
+            int blue = color(0, 0, 255);
+            int red = color(255, 0, 0);
             
             //TODO: Add code here as appropriate
+            for (int i = 0; i < earthquakes.size(); i++)
+            {
+                PointFeature f = earthquakes.get(i);
+                SimplePointMarker spm = createMarker(f);
+                
+              //TODO: add code here to change style of marker based on magnitude of earthquake
+                Object magObj = f.getProperty("magnitude");
+                float mag = Float.parseFloat(magObj.toString());
+                if (mag >= 5.0)
+                {
+                    //TODO: set color to red
+                    spm.setColor(red);
+                    spm.setRadius(mag*3.0f);
+                }
+                else if (mag >= 4.0 && mag < 5.0)
+                {
+                    //TODO: set color to yellow
+                    spm.setColor(yellow);
+                    spm.setRadius(mag*2.0f);
+                }
+                else if (mag < 4.0 && mag > 0)
+                {
+                    //TODO: set color to blue
+                    spm.setColor(blue);
+                    spm.setRadius(mag*1.0f);
+                }
+
+                markers.add(spm);
+                map.addMarker(spm);
+            }
         }
                 
         // A suggested helper method that takes in an earthquake feature and 
@@ -95,8 +130,8 @@ public class EarthquakeCityMap extends PApplet {
         // TODO: Implement this method and call it from setUp, if it helps
         private SimplePointMarker createMarker(PointFeature feature)
         {
-                // finish implementing and use this method, if it helps.
-                return new SimplePointMarker(feature.getLocation());
+            // finish implementing and use this method, if it helps.
+            return new SimplePointMarker(feature.getLocation());
         }
         
         public void draw() {
@@ -110,7 +145,8 @@ public class EarthquakeCityMap extends PApplet {
         // TODO: Implement this method to draw the key
         private void addKey() 
         {       
-                // Remember you can use Processing's graphics methods here
+            // Remember you can use Processing's graphics methods here
+//            rect(30, 20, 55, 55);
         
         }
 }
