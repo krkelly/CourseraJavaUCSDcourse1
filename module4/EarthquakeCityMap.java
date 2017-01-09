@@ -80,7 +80,7 @@ public class EarthquakeCityMap extends PApplet {
 		
 		// FOR TESTING: Set earthquakesURL to be one of the testing files by uncommenting
 		// one of the lines below.  This will work whether you are online or offline
-//		earthquakesURL = "test1.atom";
+		earthquakesURL = "test1.atom";
 //		earthquakesURL = "test2.atom";
 		
 		// WHEN TAKING THIS QUIZ: Uncomment the next line
@@ -187,6 +187,32 @@ public class EarthquakeCityMap extends PApplet {
 	private void printQuakes() 
 	{
 		// TODO: Implement this method
+	    int oceanQuakeCnt = 0;
+	    
+	    for (Marker country : countryMarkers)
+	    {
+	        int landQuakeCount = 0;
+	        
+	        String name = country.getStringProperty("name");
+	        for (Marker quake : quakeMarkers)
+	        {
+	            if (quake.getStringProperty("country") == name)
+	            {
+	                landQuakeCount++;
+	            }
+	        }
+	        
+	        if (landQuakeCount > 1)
+                {
+                    System.out.println(name + " had " + landQuakeCount + " earthquakes ");
+                }
+	        else if (1 == landQuakeCount)
+	        {
+	            System.out.println(name + " had " + landQuakeCount + " earthquake ");
+	        }
+	    }
+	    
+	    System.out.println("There were " + oceanQuakeCnt + " earthquakes in oceans.");
 	}
 	
 	
