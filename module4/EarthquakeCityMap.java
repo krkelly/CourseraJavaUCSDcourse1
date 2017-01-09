@@ -80,7 +80,7 @@ public class EarthquakeCityMap extends PApplet {
 		
 		// FOR TESTING: Set earthquakesURL to be one of the testing files by uncommenting
 		// one of the lines below.  This will work whether you are online or offline
-		earthquakesURL = "test1.atom";
+//		earthquakesURL = "test1.atom";
 //		earthquakesURL = "test2.atom";
 		
 		// WHEN TAKING THIS QUIZ: Uncomment the next line
@@ -172,7 +172,11 @@ public class EarthquakeCityMap extends PApplet {
 		// TODO: Implement this method using the helper method isInCountry
 	        for (Marker country : countryMarkers)
 	        {
-	            onLand = (isInCountry(earthquake, country)) ? true : false;
+	            if (isInCountry(earthquake, country))
+	            {
+	                onLand = true;
+	                break;
+	            }
 	        }
 		
 		return onLand;
@@ -188,7 +192,7 @@ public class EarthquakeCityMap extends PApplet {
 	{
 		// TODO: Implement this method
 	    int oceanQuakeCnt = 0;
-	    
+	    int countryIteration = 0;
 	    for (Marker country : countryMarkers)
 	    {
 	        int landQuakeCount = 0;
@@ -200,7 +204,14 @@ public class EarthquakeCityMap extends PApplet {
 	            {
 	                landQuakeCount++;
 	            }
+	            
+	            if (0 == countryIteration && !((EarthquakeMarker) quake).isOnLand())
+	            {
+	                oceanQuakeCnt++;
+	            }
 	        }
+	        
+	        countryIteration++;
 	        
 	        if (landQuakeCount > 1)
                 {
