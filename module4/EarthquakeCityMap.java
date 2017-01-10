@@ -156,6 +156,15 @@ public class EarthquakeCityMap extends PApplet {
 //		text("5.0+ Magnitude", 75, 125);
 //		text("4.0+ Magnitude", 75, 175);
 //		text("Below 4.0", 75, 225);
+		
+		fill(color(155, 41, 121));
+		int offset = 4;
+		float x = 50.0f;
+		float y = 125.0f;
+		triangle(x, (y-offset), (x-offset), (y+offset), (x+offset), (y+offset));
+		
+		fill(0, 0, 0);
+		text("City Marker", 60, 123);
 	}
 
 	
