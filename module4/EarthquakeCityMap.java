@@ -157,14 +157,40 @@ public class EarthquakeCityMap extends PApplet {
 //		text("4.0+ Magnitude", 75, 175);
 //		text("Below 4.0", 75, 225);
 		
+		// City Marker
 		fill(color(155, 41, 121));
 		int offset = 4;
 		float x = 50.0f;
 		float y = 125.0f;
 		triangle(x, (y-offset), (x-offset), (y+offset), (x+offset), (y+offset));
-		
+		float textX = 60.0f;
+		float textY = 123.0f;
 		fill(0, 0, 0);
-		text("City Marker", 60, 123);
+		text("City Marker", textX, textY);
+		
+		float verticalOffset = 20.0f;
+		
+		// Land Quake
+		fill(color(255, 255, 255));
+		y += verticalOffset;
+		ellipse(x, y, 8, 8);
+		textY += verticalOffset;
+		fill(0, 0, 0);
+                text("Land Quake", textX, textY);
+                
+                // Ocean Quake
+                fill(color(255, 255, 255));
+                y += verticalOffset;
+                y -= 4;
+                x -= 4;
+                rect(x, y, 8, 8);
+                textY += verticalOffset;
+                fill(0, 0, 0);
+                text("Ocean Quake", textX, textY);
+                
+                textY += verticalOffset;
+                fill(0, 0, 0);
+                text("Size ~ Magnitude", textX, textY);
 	}
 
 	

@@ -33,7 +33,9 @@ public class LandQuakeMarker extends EarthquakeMarker {
 		// and how it is set in the EarthquakeMarker constructor
 		
 		// TODO: Implement this method
-		
+	        float w = 2.0f*this.getMagnitude();
+	        float h = 2.0f*this.getMagnitude();
+		pg.ellipse(x, y, w, h);
 	}
 	
 
