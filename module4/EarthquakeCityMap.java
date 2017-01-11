@@ -220,6 +220,15 @@ public class EarthquakeCityMap extends PApplet {
                 textY += verticalOffset;
                 fill(0, 0, 0);
                 text("Deep", textX, textY);
+                
+                // Deep
+                y += verticalOffset;
+                offset = 5;
+                line(x-offset, y+offset, x+offset, y-offset);
+                line(x-offset, y-offset, x+offset, y+offset);
+                textY += verticalOffset;
+                fill(0, 0, 0);
+                text("Past Day", textX, textY);
 	}
 
 	

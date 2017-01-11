@@ -71,7 +71,12 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 		// call abstract method implemented in child class to draw marker shape
 		drawEarthquake(pg, x, y);
 		
-		// OPTIONAL TODO: draw X over marker if within past day		
+		// OPTIONAL TODO: draw X over marker if within past day	
+		String age = getAge();
+		if (age.equals("Past Day") || age.equals("Past Hour"))
+		{
+		    drawX(pg, x, y);
+		}
 		
 		// reset to previous styling
 		pg.popStyle();
@@ -87,22 +92,20 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	    float depth = getDepth();
 	    if (depth < THRESHOLD_INTERMEDIATE)
 	    {
-	        // System.out.println("low depth");
 	        pg.fill(yellow);
 	    }
 	    else if (depth >= THRESHOLD_INTERMEDIATE && depth < THRESHOLD_DEEP)
 	    {
-//	        System.out.println("mid depth");
 	        pg.fill(blue);
 	    }
 	    else if (depth >= THRESHOLD_DEEP)
 	    {
-//	         System.out.println("high depth");
 	        pg.fill(red);
 	    }
 	    else
 	    {
-	        // TODO: no depth? print?
+	        // Should never reach this condition
+	        System.out.println("ERROR CALCULATING DEPTH!");
 	    }
 	}
 	
@@ -128,10 +131,20 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 		return Float.parseFloat(getProperty("radius").toString());
 	}
 	
+	public String getAge() {
+            return getProperty("age").toString();
+        }
+	
 	public boolean isOnLand()
 	{
 		return isOnLand;
 	}
 	
+	private void drawX(PGraphics pg, float x, float y)
+	{
+	    float offset = 8.0f; 
+	    pg.line(x-offset, y+offset, x+offset, y-offset);
+	    pg.line(x-offset, y-offset, x+offset, y+offset);
+	}
 	
 }
