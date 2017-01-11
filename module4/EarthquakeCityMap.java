@@ -191,6 +191,35 @@ public class EarthquakeCityMap extends PApplet {
                 textY += verticalOffset;
                 fill(0, 0, 0);
                 text("Size ~ Magnitude", textX, textY);
+
+                // fix offsets for next keys
+                y += 4;
+                x += 4;
+                y += verticalOffset;
+                
+                // Shallow
+                fill(color(255, 255, 0)); // yellow
+                y += verticalOffset;
+                ellipse(x, y, 8, 8);
+                textY += verticalOffset;
+                fill(0, 0, 0);
+                text("Shallow", textX, textY);
+                
+                // Intermediate
+                fill(color(0, 0, 255)); // blue
+                y += verticalOffset;
+                ellipse(x, y, 8, 8);
+                textY += verticalOffset;
+                fill(0, 0, 0);
+                text("Intermediate", textX, textY);
+                
+                // Deep
+                fill(color(255, 0, 0)); // red
+                y += verticalOffset;
+                ellipse(x, y, 8, 8);
+                textY += verticalOffset;
+                fill(0, 0, 0);
+                text("Deep", textX, textY);
 	}
 
 	
