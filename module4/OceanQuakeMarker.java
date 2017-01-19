@@ -34,6 +34,20 @@ public class OceanQuakeMarker extends EarthquakeMarker {
                 float h = 2.0f*this.getMagnitude();
                 pg.rect(x, y, w, h);
 	}
+
+
+        @Override
+        public void drawMarker(PGraphics pg, float x, float y) {
+            // TODO Auto-generated method stub
+            
+        }
+    
+    
+        @Override
+        public void showTitle(PGraphics pg, float x, float y) {
+            // TODO Auto-generated method stub
+            
+        }
 	
 
 

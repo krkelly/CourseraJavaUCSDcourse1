@@ -45,6 +45,20 @@ public class LandQuakeMarker extends EarthquakeMarker {
 	}
 
 
+        @Override
+        public void drawMarker(PGraphics pg, float x, float y) {
+            // TODO Auto-generated method stub
+            
+        }
+
+
+        @Override
+        public void showTitle(PGraphics pg, float x, float y) {
+            // TODO Auto-generated method stub
+            
+        }
+
+
 
 		
 }

@@ -2,6 +2,7 @@ package module4;
 
 import java.awt.Color;
 
+import module5.CommonMarker;
 import de.fhpotsdam.unfolding.data.PointFeature;
 import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import processing.core.PGraphics;
@@ -12,7 +13,7 @@ import processing.core.PGraphics;
  * @author Your name here
  *
  */
-public abstract class EarthquakeMarker extends SimplePointMarker
+public abstract class EarthquakeMarker extends CommonMarker
 {
 	
 	// Did the earthquake occur on land?  This will be set by the subclasses.
