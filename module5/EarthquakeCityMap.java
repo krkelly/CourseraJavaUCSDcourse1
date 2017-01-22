@@ -194,18 +194,52 @@ public class EarthquakeCityMap extends PApplet {
 	        if (lastClicked instanceof EarthquakeMarker)
 	        {
 	            // display city markers within threat circle, hide other eq/cities
+	            hideOtherQuakes((EarthquakeMarker) lastClicked);
 	            displayCitiesInThreat((EarthquakeMarker) lastClicked);
 	        }
 	        else if (lastClicked instanceof CityMarker)
 	        {
 	            // display eq markers within threat circle, hide other eq/cities
+	            hideOtherCities((CityMarker) lastClicked);
 	            displayEarthquakesInThreat((CityMarker) lastClicked);
 	        }
 	    }
 	}
 	
 	
-	private void displayEarthquakesInThreat(CityMarker city) {
+	private void hideOtherCities(CityMarker city) {
+            // TODO Auto-generated method stub
+            for (Marker m : cityMarkers)
+            {
+                if (m == city)
+                {
+                    m.setHidden(false);
+                }
+                else
+                {
+                    m.setHidden(true);
+                }
+            }
+        }
+
+
+        private void hideOtherQuakes(EarthquakeMarker quake) {
+            // TODO Auto-generated method stub
+            for (Marker m : quakeMarkers)
+            {
+                if (m == quake)
+                {
+                    m.setHidden(false);
+                }
+                else
+                {
+                    m.setHidden(true);
+                }
+            }
+        }
+
+
+    private void displayEarthquakesInThreat(CityMarker city) {
             // TODO Auto-generated method stub
 	    for (Marker eq : quakeMarkers)
 	    {
