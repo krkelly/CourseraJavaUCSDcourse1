@@ -170,13 +170,79 @@ public class EarthquakeCityMap extends PApplet {
 	@Override
 	public void mouseClicked()
 	{
-		// TODO: Implement this method
-		// Hint: You probably want a helper method or two to keep this code
-		// from getting too long/disorganized
+            // TODO: Implement this method
+            // Hint: You probably want a helper method or two to keep this code
+            // from getting too long/disorganized
+	    // If last click is *not* null, de-select marker last clicked
+	    // else determine which marker is being selected (if any)
+	    //    if eq marker is selected, display city markers within threat cirlce,
+	    //       hide all other eq/cities
+	    //    if city marker is selected, display eq markers within threat circle
+	    //       hide all other eq/cities
+	    
+	    if (lastClicked != null)
+	    {
+	        lastClicked.setClicked(false);
+	        unhideMarkers();
+	        lastClicked = null;
+	    }
+	    else if (lastSelected != null)
+	    {
+	        // determine selected marker
+	        lastClicked = lastSelected;
+	        lastClicked.setClicked(true);
+	        if (lastClicked instanceof EarthquakeMarker)
+	        {
+	            // display city markers within threat circle, hide other eq/cities
+	            displayCitiesInThreat((EarthquakeMarker) lastClicked);
+	        }
+	        else if (lastClicked instanceof CityMarker)
+	        {
+	            // display eq markers within threat circle, hide other eq/cities
+	            displayEarthquakesInThreat((CityMarker) lastClicked);
+	        }
+	    }
 	}
 	
 	
-	// loop over and unhide all markers
+	private void displayEarthquakesInThreat(CityMarker city) {
+            // TODO Auto-generated method stub
+	    for (Marker eq : quakeMarkers)
+	    {
+	        double threatCircle = ((EarthquakeMarker) eq).threatCircle();
+	        if (city.getDistanceTo(eq.getLocation()) <= threatCircle)
+	        {
+	            eq.setHidden(false);
+	        }
+	        else
+	        {
+	            eq.setHidden(true);
+	        }
+	    }
+            
+        }
+
+
+        private void displayCitiesInThreat(EarthquakeMarker eq) {
+            // TODO Auto-generated method stub
+            double threatCircle = eq.threatCircle();
+            for (Marker city : cityMarkers)
+            {
+                if (city.getDistanceTo(eq.getLocation()) <= threatCircle)
+                {
+                    // show city
+                    city.setHidden(false);
+                }
+                else
+                {
+                    // hide city
+                    city.setHidden(true);
+                }
+            }
+        }
+
+
+    // loop over and unhide all markers
 	private void unhideMarkers() {
 		for(Marker marker : quakeMarkers) {
 			marker.setHidden(false);
