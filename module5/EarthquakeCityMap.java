@@ -74,7 +74,7 @@ public class EarthquakeCityMap extends PApplet {
 //			map = new UnfoldingMap(this, 200, 50, 650, 600, new Google.GoogleMapProvider());
 			map = new UnfoldingMap(this, 200, 50, 650, 600, new OpenStreetMap.OpenStreetMapProvider());
 			// IF YOU WANT TO TEST WITH A LOCAL FILE, uncomment the next line
-		    //earthquakesURL = "2.5_week.atom";
+//		    earthquakesURL = "2.5_week.atom";
 		}
 		MapUtils.createDefaultEventDispatcher(this, map);
 		
@@ -150,11 +150,7 @@ public class EarthquakeCityMap extends PApplet {
 		// TODO: Implement this method
 	    for (Marker m : markers)
 	    {
-	        if (lastSelected != null)
-	        {
-	            break;
-	        }
-	        else if (m.isInside(map, mouseX, mouseY))
+	        if (m.isInside(map, mouseX, mouseY) && lastSelected == null)
 	        {
 	            lastSelected = (CommonMarker) m;
 	            m.setSelected(true);

@@ -32,30 +32,17 @@ public class CityMarker extends CommonMarker {
 		// Cities have properties: "name" (city name), "country" (country name)
 		// and "population" (population, in millions)
 	}
-
-	
-	/**
-	 * Implementation of method to draw marker on the map.
-	 */
-	public void draw(PGraphics pg, float x, float y) {
-		// Save previous drawing style
-		pg.pushStyle();
-		
-		// IMPLEMENT: drawing triangle for each city
-		pg.fill(150, 30, 30);
-		pg.triangle(x, y-TRI_SIZE, x-TRI_SIZE, y+TRI_SIZE, x+TRI_SIZE, y+TRI_SIZE);
-		
-		// Restore previous drawing style
-		pg.popStyle();
-	}
 	
 	/** Show the title of the city if this marker is selected */
 	public void showTitle(PGraphics pg, float x, float y)
 	{
 	    // TODO: Implement this method
+	    pg.pushStyle();
 	    int black = pg.color(0, 0, 0);
             pg.fill(black);
-            pg.text(this.getCity(), x, y);
+            String s = this.getCity() + ", " + this.getCountry() + ", " + this.getPopulation();
+            pg.text(s, x, y);
+            pg.popStyle();
 	}
 	
 	
@@ -78,9 +65,20 @@ public class CityMarker extends CommonMarker {
 	}
 
 
+	 /**
+         * Implementation of method to draw marker on the map.
+         */
         @Override
         public void drawMarker(PGraphics pg, float x, float y) {
             // TODO Auto-generated method stub
-        
+            // Save previous drawing style
+            pg.pushStyle();
+            
+            // IMPLEMENT: drawing triangle for each city
+            pg.fill(150, 30, 30);
+            pg.triangle(x, y-TRI_SIZE, x-TRI_SIZE, y+TRI_SIZE, x+TRI_SIZE, y+TRI_SIZE);
+            
+            // Restore previous drawing style
+            pg.popStyle();
         }
 }
