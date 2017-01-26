@@ -41,20 +41,5 @@ public class LandQuakeMarker extends EarthquakeMarker {
 	public String getCountry() {
 		return (String) getProperty("country");
 	}
-
-
-    @Override
-    public int compareTo(EarthquakeMarker o) {
-        if (this.getMagnitude() > o.getMagnitude())
-        {
-            return 1;
-        }
-        else if (this.getMagnitude() > o.getMagnitude())
-        {
-            return -1;
-        }
-        return 0;
-    }
-
-		
+	
 }
