@@ -8,6 +8,9 @@ import processing.core.PGraphics;
  * @author UC San Diego Intermediate Software Development MOOC team
  *
  */
+
+// Error: The type LandQuakeMarker must implement the inherited abstract method Comparable<EarthquakeMarker>.compareTo(EarthquakeMarker)
+// Errors because EarthquakeMarker implements Comparable so this class needs to tell Comparable what to compare
 public class LandQuakeMarker extends EarthquakeMarker {
 	
 	
@@ -38,6 +41,20 @@ public class LandQuakeMarker extends EarthquakeMarker {
 	public String getCountry() {
 		return (String) getProperty("country");
 	}
+
+
+    @Override
+    public int compareTo(EarthquakeMarker o) {
+        if (this.getMagnitude() > o.getMagnitude())
+        {
+            return 1;
+        }
+        else if (this.getMagnitude() > o.getMagnitude())
+        {
+            return -1;
+        }
+        return 0;
+    }
 
 		
 }

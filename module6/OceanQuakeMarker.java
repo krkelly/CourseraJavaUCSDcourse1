@@ -8,6 +8,8 @@ import processing.core.PGraphics;
  * @author UC San Diego Intermediate Software Development MOOC team
  *
  */
+// Error: The type OceanQuakeMarker must implement the inherited abstract method Comparable<EarthquakeMarker>.compareTo(EarthquakeMarker)
+// Errors because EarthquakeMarker implements Comparable so this class needs to tell Comparable what to compare
 public class OceanQuakeMarker extends EarthquakeMarker {
 	
 	public OceanQuakeMarker(PointFeature quake) {
@@ -28,6 +30,20 @@ public class OceanQuakeMarker extends EarthquakeMarker {
 		// and how it is set in the EarthquakeMarker constructor
 		pg.rect(x-radius, y-radius, 2*radius, 2*radius);
 	}
+
+
+    @Override
+    public int compareTo(EarthquakeMarker o) {
+        if (this.getMagnitude() > o.getMagnitude())
+        {
+            return 1;
+        }
+        else if (this.getMagnitude() > o.getMagnitude())
+        {
+            return -1;
+        }
+        return 0;
+    }
 	
 
 	
