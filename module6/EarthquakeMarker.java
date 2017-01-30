@@ -185,7 +185,7 @@ public abstract class EarthquakeMarker extends CommonMarker implements Comparabl
 	    {
 	        return 1;
 	    }
-	    else if (this.getMagnitude() > o.getMagnitude())
+	    else if (this.getMagnitude() < o.getMagnitude())
 	    {
 	        return -1;
 	    }
