@@ -51,6 +51,9 @@ public class EarthquakeCityMap extends PApplet {
 	private String cityFile = "city-data.json";
 	private String countryFile = "countries.geo.json";
 	
+	// File for Colorado parks
+	private String parksFile = "cpw-parks.json";
+	
 	// The map
 	private UnfoldingMap map;
 	
@@ -61,6 +64,9 @@ public class EarthquakeCityMap extends PApplet {
 
 	// A List of country markers
 	private List<Marker> countryMarkers;
+	
+	// List of Colorado state parks
+	private List<Marker> parkMarkers;
 	
 	// NEW IN MODULE 5
 	private CommonMarker lastSelected;
@@ -87,7 +93,7 @@ public class EarthquakeCityMap extends PApplet {
 		//earthquakesURL = "test2.atom";
 		
 		// Uncomment this line to take the quiz
-		//earthquakesURL = "quiz2.atom";
+//		earthquakesURL = "quiz2.atom";
 		
 		
 		// (2) Reading in earthquake data and geometric properties
@@ -101,6 +107,13 @@ public class EarthquakeCityMap extends PApplet {
 		for(Feature city : cities) {
 		  cityMarkers.add(new CityMarker(city));
 		}
+		
+		// 2B: read in parks data
+		List<Feature> parks = GeoJSONReader.loadData(this, parksFile);
+                parkMarkers = new ArrayList<Marker>();
+                for(Feature park : parks) {
+                  parkMarkers.add(new ParkMarker(park));
+                }
 	    
 		//     STEP 3: read in earthquake RSS feed
 	    List<PointFeature> earthquakes = ParseFeed.parseEarthquake(this, earthquakesURL);
@@ -126,6 +139,7 @@ public class EarthquakeCityMap extends PApplet {
 	    //           for their geometric properties
 	    map.addMarkers(quakeMarkers);
 	    map.addMarkers(cityMarkers);
+	    map.addMarkers(parkMarkers);
 	    
 	    
 	}  // End setup
@@ -175,6 +189,7 @@ public class EarthquakeCityMap extends PApplet {
 		}
 		selectMarkerIfHover(quakeMarkers);
 		selectMarkerIfHover(cityMarkers);
+		selectMarkerIfHover(parkMarkers);
 		//loop();
 	}
 	
