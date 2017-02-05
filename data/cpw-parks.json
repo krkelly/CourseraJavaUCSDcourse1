@@ -1,0 +1,16 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"name":"Arkansas Headwaters Recreation Area", "primitive camping":"36"},"geometry":{"type":"Point","coordinates":[-105.992, 38.538]}},
+{"type":"Feature","properties":{"name":"Barr Lake", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-104.751673, 39.938265]}},
+{"type":"Feature","properties":{"name":"Boyd Lake", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-105.041241, 40.434341]}},
+{"type":"Feature","properties":{"name":"Castlewood Canyon", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-104.745, 39.333]}},
+{"type":"Feature","properties":{"name":"Chatfield", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-105.071359, 39.533838]}},
+{"type":"Feature","properties":{"name":"Cherry Creek", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-104.844997, 39.644999]}},
+{"type":"Feature","properties":{"name":"Cheyenne Mountain", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-104.821028, 38.731550]}},
+{"type":"Feature","properties":{"name":"Crawford", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-107.595300, 38.687333]}},
+{"type":"Feature","properties":{"name":"Eldorado Canyon", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-105.294650, 39.930447]}},
+{"type":"Feature","properties":{"name":"Eleven Mile", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-105.503678, 38.934935]}},
+{"type":"Feature","properties":{"name":"Elkhead Reservoir", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-107.384852, 40.563372]}},
+{"type":"Feature","properties":{"name":"Golden Gate Canyon", "primitive camping":"20"},"geometry":{"type":"Point","coordinates":[-105.411, 39.831]}},
+{"type":"Feature","properties":{"name":"Harvey Gap", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-107.656783, 39.609344]}},
+]
+}
