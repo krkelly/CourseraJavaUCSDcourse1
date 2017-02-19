@@ -12,5 +12,10 @@
 {"type":"Feature","properties":{"name":"Elkhead Reservoir", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-107.384852, 40.563372]}},
 {"type":"Feature","properties":{"name":"Golden Gate Canyon", "primitive camping":"20"},"geometry":{"type":"Point","coordinates":[-105.411, 39.831]}},
 {"type":"Feature","properties":{"name":"Harvey Gap", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-107.656783, 39.609344]}},
+{"type":"Feature","properties":{"name":"Highline Lake", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-108.836663, 39.270930]}},
+{"type":"Feature","properties":{"name":"Jackson Lake", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-104.093196, 40.391264]}},
+{"type":"Feature","properties":{"name":"James M. Robb - Colorado River, Connected Lakes Section", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-108.609005, 39.079308]}},
+{"type":"Feature","properties":{"name":"James M. Robb - Colorado River, Corn Lake Section", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-108.459938, 39.057308]}},
+{"type":"Feature","properties":{"name":"James M. Robb - Colorado River, Fruita Section", "primitive camping":"0"},"geometry":{"type":"Point","coordinates":[-108.741798, 39.149053]}},
 ]
 }
